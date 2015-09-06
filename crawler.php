@@ -4,12 +4,18 @@ require 'vendor/autoload.php';
 
 use Symfony\Component\DomCrawler\Crawler;
 
-$url = 'http://hard.rozetka.com.ua/Divoom_onbeat-500_black/p343395/?utm_medium=cpc&utm_source=Hotline_main&utm_campaign=speakers&utm_content=343395&utm_term=Divoom_onbeat-500_black';
+$urls = [
+    'http://hard.rozetka.com.ua/Divoom_onbeat-500_white/p343415/',
+    'http://rozetka.com.ua/agestar_sub_2o8/p270102/',
+    'http://rozetka.com.ua/grandx_bt40g/p1675697/',
+    'http://rozetka.com.ua/jeka_103_3g/p1989222/',
+];
 
-$html = file_get_contents($url);
+foreach ($urls as $url) {
+    $html = file_get_contents($url);
+    $crawler = new Crawler($html);
+    $priceSpan = $crawler->filter('[itemprop="price"]');
+    $price = intval(str_replace(' ', '', $priceSpan->text()));
+    var_dump($price);
+}
 
-$crawler = new Crawler($html);
-
-$priceSpan = $crawler->filter('span[itemprop="price"]');
-
-var_dump($priceSpan->text());
