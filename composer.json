@@ -1,0 +1,10 @@
+{
+    "name": "dmitry/phpcrawler",
+    "authors": [
+        {
+            "name": "petryshend",
+            "email": "petryshend@gmail.com"
+        }
+    ],
+    "require": {}
+}
