@@ -6,5 +6,8 @@
             "email": "petryshend@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/dom-crawler": "^2.7",
+        "symfony/css-selector": "^2.7"
+    }
 }
