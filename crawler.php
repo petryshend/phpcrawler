@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require 'bootstrap.php';
 
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -16,6 +16,5 @@ foreach ($urls as $url) {
     $crawler = new Crawler($html);
     $priceSpan = $crawler->filter('[itemprop="price"]');
     $price = intval(str_replace(' ', '', $priceSpan->text()));
-    var_dump($price);
+    $totalPrice += $price;
 }
-
